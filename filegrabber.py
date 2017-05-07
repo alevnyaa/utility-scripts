@@ -1,10 +1,18 @@
 #!/usr/bin/env python
 import urllib.request
 from bs4 import BeautifulSoup
-import os
+from os import chdir
+import os.path
 import shutil
 
-from fgconf import target_url, save_dir, url_pattern
+file_exists = os.path.isfile("fgconf.py");
+if file_exists:
+    file_exists = True;
+    from fgconf import target_url, save_dir, url_pattern
+else:
+    target_url = input("URL:")
+    save_dir = input("Save directory:")
+    url_pattern = input("Pattern:")
 
 os.chdir(save_dir)
 
