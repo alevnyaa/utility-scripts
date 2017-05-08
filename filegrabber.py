@@ -50,9 +50,10 @@ for link in links:
     if(file_name == save_dir):
         file_name += cur_file_it
         cur_file_it += 1
-    cur_file_data = urllib.request.urlopen(file_req)
-    cur_file_dir = open(file_name, 'wb')
-    shutil.copyfileobj(cur_file_data, cur_file_dir)
+    if not os.path.isfile(file_name):
+        cur_file_data = urllib.request.urlopen(file_req)
+        cur_file_dir = open(file_name, 'wb')
+        shutil.copyfileobj(cur_file_data, cur_file_dir)
     progress += 1
 
 print("{current} out of {max_files} ({:.0%})".format(
