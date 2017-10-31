@@ -1,4 +1,11 @@
 #!/usr/bin/env python
+"""Config help
+fgconf.py:  target_url = "https://..."
+            save_dir = "home/$USER/Downloads/FileGrabber/"
+            url_pattern = "//..."
+urls.txt:   https://...
+"""
+
 import urllib.request
 from bs4 import BeautifulSoup
 from os import chdir

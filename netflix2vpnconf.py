@@ -13,7 +13,7 @@ def dig_url(urls):
     """Uses the dig unix utility and returns a list of ip addresses"""
     ips = []
     for url in urls:
-        ips.append(subprocess.check_output(['dig', "+short", url], universal_newlines=True))
+        ips.append(subprocess.check_output(['dig', '+short', url], universal_newlines=True))
     return ips
 
 for ip in dig_url(['www.netflix.com']):
